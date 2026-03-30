@@ -125,7 +125,9 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 1.9rem; margin-bottom: 1.3rem;
       box-shadow: 0 4px 16px rgba(0,0,0,0.09);
+      overflow: hidden;
     }
+    .app-icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; }
     .icon-ginti    { background: linear-gradient(145deg, #e8f5e9, #c8e6c9); }
     .icon-postleap { background: linear-gradient(145deg, #e3f0ff, #b3d4fa); }
     .app-name {
@@ -146,6 +148,10 @@
       border-top: 1px solid var(--border);
       background: var(--bg3);
       display: flex; align-items: center; justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .app-card-bottom-left {
+      display: flex; flex-direction: column; gap: 0.45rem;
     }
     .coming-soon-badge {
       display: inline-flex; align-items: center; gap: 0.4rem;
@@ -158,6 +164,13 @@
       content: ''; width: 6px; height: 6px;
       border-radius: 50%; background: #f5a623;
     }
+    .website-link {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.76rem; font-weight: 500;
+      color: var(--accent); text-decoration: none;
+      transition: gap 0.15s, opacity 0.15s;
+    }
+    .website-link:hover { gap: 0.5rem; opacity: 0.75; }
     .app-category { font-size: 0.76rem; color: var(--ink3); font-weight: 500; }
 
     /* FEATURES */
@@ -190,6 +203,15 @@
       padding: 0.28rem 0.85rem; border-radius: 30px;
       background: var(--bg2); color: var(--ink2); border: 1px solid var(--border);
     }
+    .feat-website-btn {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      margin-top: 1.6rem;
+      background: var(--ink); color: #fff;
+      padding: 0.65rem 1.4rem; border-radius: 980px;
+      text-decoration: none; font-size: 0.84rem; font-weight: 500;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .feat-website-btn:hover { background: #333; transform: translateY(-1px); }
     .feat-visual {
       background: var(--bg2); border-radius: var(--radius);
       border: 1px solid var(--border); aspect-ratio: 4/3;
@@ -346,13 +368,23 @@
 
     <div class="app-card">
       <div class="app-card-top">
-        <div class="app-icon-wrap icon-ginti">💰</div>
+        <div class="app-icon-wrap icon-ginti">
+          <img src="https://ginti.app/icon.png" alt="Ginti" onerror="this.parentNode.innerHTML='💰'">
+        </div>
         <div class="app-name">Ginti</div>
         <div class="app-tagline">Expense Tracker</div>
         <p class="app-desc">Ginti makes it effortless to track where your money goes. Log expenses in seconds, visualise spending by category, and stay on top of your budget — without any complexity.</p>
       </div>
       <div class="app-card-bottom">
-        <span class="coming-soon-badge">Coming Soon</span>
+        <div class="app-card-bottom-left">
+          <span class="coming-soon-badge">Coming Soon on App Store and Play Store</span>
+          <a href="https://ginti.app/" target="_blank" rel="noopener" class="website-link">
+            ginti.app
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 9L9 1M9 1H3M9 1v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
         <span class="app-category">Finance · Productivity</span>
       </div>
     </div>
@@ -387,6 +419,9 @@
           <span class="pill">Spending Insights</span>
           <span class="pill">Multi-currency</span>
         </div>
+        <a href="https://ginti.app/" target="_blank" rel="noopener" class="feat-website-btn">
+          Visit ginti.app ↗
+        </a>
       </div>
       <div class="feat-visual">
         <div class="vis-ginti">
